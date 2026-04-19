@@ -35,6 +35,13 @@ def get_count():
     global passenger_count
     return str(passenger_count)
 
+@app.route('/')
+def health():
+    return {
+        "status": "ok",
+        "message": "Flask server is running 🚀",
+        "passenger_count": passenger_count
+    }
+
 if __name__ == '__main__':
-    # '0.0.0.0' allows other devices (phones) on your Wi-Fi to see the server
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
